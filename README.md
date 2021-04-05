@@ -1,2 +1,2 @@
 # KMM
- Github repository for my gmae project
+Game Kmm cards and space stuff

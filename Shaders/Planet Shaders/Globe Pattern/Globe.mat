@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Globe
+  m_Shader: {fileID: -6465566751694194690, guid: aeac6c3b26419874bb4038ccd2182041,
+    type: 3}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - Texture2D_93C5FD25:
+        m_Texture: {fileID: 2800000, guid: 32fb9d6fc1ffc9b4bac7d16b85d5037c, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats:
+    - Vector1_73B720F1: 115.17
+    - Vector1_7D811AD7: 0.68
+    - Vector1_CADEAA5B: 0.5
+    - Vector1_E00C502C: 5
+    - Vector1_F997FA81: 0.779
+    m_Colors:
+    - Color_F6F7362D: {r: 16, g: 1.0666667, b: 0, a: 0}
