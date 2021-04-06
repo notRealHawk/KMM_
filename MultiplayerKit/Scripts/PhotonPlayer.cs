@@ -78,6 +78,7 @@ public class PhotonPlayer : MonoBehaviour {
         //		Debug.Log ("Spawning Bot"+GameSetup.GS.BotsSpawnPoints [MyNumber-1].gameObject.name);
         player =	PhotonNetwork.InstantiateRoomObject (Path.Combine ("Bots", Playerinfo.PI.Bots [MyBotCharacter].name), 
 			GameSetup.GS.BotsSpawnPoints [MyNumber-1].position, GameSetup.GS.BotsSpawnPoints [MyNumber-1].rotation, 0);
+			print(player);
 			player.GetComponent<NetworkPlayer> ()._photonPlayer = gameObject.GetComponent<PhotonPlayer> ();
 			player.GetComponent<NetworkPlayer> ().Kills = MyKills;
 		player.GetComponent<NetworkPlayer>().isBot = true;

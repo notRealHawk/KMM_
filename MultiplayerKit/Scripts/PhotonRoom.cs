@@ -275,25 +275,43 @@ public class PhotonRoom : MonoBehaviourPunCallbacks, IInRoomCallbacks
 			Waittext.text = wait.ToString();
 		}
 	}
-	void SpawnBotsController()
-	{
-		Debug.Log("Players in Room before Spawning Bots= " + PlayersInGame);
-		int bots = TotalBots - PlayersinRoom;
-		//		GameSetup.GS.Bots = new GameObject[TotalBots];
-		Debug.Log("TotalBots =" + TotalBots + "Player in Game" + PhotonRoom.photonRoom.PlayersinRoom);
-		for (int i = 0; i < bots; i++)
-		{
-			//			Debug.Log ("TotalBots In Loop =" + bots+"the index is="+i);
+	// void SpawnBotsController()
+	// {
+	// 	Debug.Log("Players in Room before Spawning Bots= " + PlayersInGame);
+	// 	int bots = TotalBots - PlayersInGame;
+	// 	//		GameSetup.GS.Bots = new GameObject[TotalBots];
+	// 	Debug.Log("TotalBots =" + TotalBots + "Player in Game" + PhotonRoom.photonRoom.PlayersinRoom);
+	// 	for (int i = 0; i < bots; i++)
+	// 	{
+	// 		//			Debug.Log ("TotalBots In Loop =" + bots+"the index is="+i);
+	// 		var obj = Resources.Load("PhotonPrefabs/PhotonBotPlayer", typeof(GameObject));
+	// 		Debug.Log("Object name= " + obj);
+	// 		var prefabPath = "PhotonPrefabs/" + obj.name;
+	// 		GameObject BotController = PhotonNetwork.InstantiateRoomObject(prefabPath, transform.position, Quaternion.identity, 0);
+	// 		BotsInGame++;
+	// 		GameSetup.GS.TotalPlayerinGame++;
+	// 		var _BotController = BotController.GetComponent<PhotonPlayer>();
+	// 		_BotController.MyNumber = PlayersinRoom + BotsInGame;
+	// 	}
+
+	// }
+	void SpawnBotsController(){
+		int bots = TotalBots+1 - PlayersinRoom;
+        //		GameSetup.GS.Bots = new GameObject[TotalBots];
+        Debug.Log("TotalBots =" + TotalBots + "Player in Game" + PhotonRoom.photonRoom.PlayersinRoom);
+        for (int i=0;i<bots;i++){
+			//			Debug.Log (“TotalBots In Loop =” + bots+“the index is=“+i);
 			var obj = Resources.Load("PhotonPrefabs/PhotonBotPlayer", typeof(GameObject));
 			Debug.Log("Object name= " + obj);
 			var prefabPath = "PhotonPrefabs/" + obj.name;
-			GameObject BotController = PhotonNetwork.InstantiateRoomObject(prefabPath, transform.position, Quaternion.identity, 0);
+			GameObject	BotController = PhotonNetwork.InstantiateRoomObject (prefabPath, transform.position, Quaternion.identity,0);
 			BotsInGame++;
 			GameSetup.GS.TotalPlayerinGame++;
-			var _BotController = BotController.GetComponent<PhotonPlayer>();
-			_BotController.MyNumber = PlayersinRoom + BotsInGame;
+			var _BotController = BotController.GetComponent<PhotonPlayer> ();
+			_BotController.MyNumber = PlayersinRoom;
+			PlayersInGame++;
+			PlayersinRoom++;
 		}
-
 	}
 	//void SpawnBotsController()
 	//{

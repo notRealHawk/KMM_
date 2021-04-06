@@ -20,7 +20,7 @@ public class NetworkPlayer : MonoBehaviour {
 	public Text PlayerNameDisplay;
 	public int MyColor;
 	public int MyNoinRoom;
-	public SpriteRenderer Indicator;
+	//public SpriteRenderer Indicator; // can be used later
 	public Image Unagi;
 	public GameObject UnagiKey;
 	public Image Gola;
@@ -47,7 +47,7 @@ public class NetworkPlayer : MonoBehaviour {
 		if (gameObject.tag == "Player") {
 //			Instantiate (Controls, vUI);		
 			//Staminafill.enabled=true;
-			Indicator.enabled = true;
+			//Indicator.enabled = true; //can be used later
             Controls.SetActive(true);
             MyNoinRoom = (int)PhotonNetwork.LocalPlayer.CustomProperties ["MyNumber"];
 			MyColor=(int)PhotonNetwork.LocalPlayer.CustomProperties ["MyColor"];

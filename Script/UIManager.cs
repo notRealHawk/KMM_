@@ -11,7 +11,7 @@ public class UIManager : MonoBehaviour
 	public List<Button> btn;
 	public RectTransform prefabBtn;
 	public GameObject PlayerEditPanel;
-	public GameObject MenuPanel;
+	//public GameObject MenuPanel;
     
     public void Start(){
     	mgr = FindObjectOfType<ObjectSerialization>();
@@ -52,14 +52,14 @@ public class UIManager : MonoBehaviour
 		Application.Quit();
 	}
 	public void Customization(){
-		PlayerEditPanel.SetActive(true);
-		MenuPanel.SetActive(false);
+		//PlayerEditPanel.SetActive(true);
+		//MenuPanel.SetActive(false);
 	}
 	public void Settings(){
 		
 	}
 	public void MenuSwitch(){
-		PlayerEditPanel.SetActive(false);
-		MenuPanel.SetActive(true);
+		//PlayerEditPanel.SetActive(false);
+		//MenuPanel.SetActive(true);
 	}
 }

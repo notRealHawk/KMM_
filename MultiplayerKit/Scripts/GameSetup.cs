@@ -32,6 +32,36 @@ public class GameSetup : MonoBehaviour {
 	[SerializeField]
 	int totalCardsPerPerson;
 
+	// public void TurnCheck(GameObject currentPlayer)
+    // {
+    //     if (!isBot)
+    //     {
+    //         if (currentPlayer.GetComponent<PlayerController_>().myTurn == true)
+    //         {
+    //             playerNumber = playerNumber + 1;
+    //             if (playerNumber + 1 == 5)
+    //             {
+    //                 playerNumber = 0;
+    //             }
+    //             currentPlayer.GetComponent<PlayerController_>().myTurn = false;
+    //             currentPlayer.transform.GetChild(0).Find("Locker").gameObject.SetActive(true);
+    //         }
+    //     }
+    //     else
+    //     {
+    //         if (currentPlayer.GetComponent<AIManager>().BotTurn)
+    //         {
+    //             playerNumber = playerNumber + 1;
+    //             if (playerNumber + 1 == 5)
+    //             {
+    //                 playerNumber = 0;
+    //             }
+    //         }
+    //         currentPlayer.GetComponent<AIManager>().BotTurn = false;
+    //         currentPlayer.transform.GetChild(0).Find("Locker").gameObject.SetActive(true);
+    //     }
+    // }
+
 	#endregion
 
 	#region UI
@@ -237,7 +267,7 @@ public class GameSetup : MonoBehaviour {
 		}
 		CheckTurn();
 	}
-	void CheckTurn()
+	public void CheckTurn()
     {
 		for (int j = 0; j < Players.Count; j++)
 		{
@@ -249,7 +279,6 @@ public class GameSetup : MonoBehaviour {
 				if (j == currentTurn)
 				{
 					player.playerCards[i].GetComponent<Button>().enabled = true;
-					
 				}
 				else
 				{
@@ -257,15 +286,20 @@ public class GameSetup : MonoBehaviour {
 				}
 			}
 		}
-
 	}
-	void StartTurnTimer()
+	public IEnumerator StartTurnTimer()
     {
-
+		float randomNum = Random.Range(1.25f, 2.75f);
+		yield return new WaitForSeconds (randomNum);
+		NextTurn();
     }
 	void NextTurn()
     {
-
+		currentTurn = currentTurn + 1;
+        if (currentTurn + 1 == 5)
+        {
+        	currentTurn = 0;
+        }
     }
 	IEnumerator	NextLevelDelay (){
 		while (NextLevelTime != 0) {
