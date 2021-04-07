@@ -31,7 +31,6 @@ public class Card : MonoBehaviour
         {
             Owner.PassCard(GameSetup.GS.Players[0].GetComponent<NetworkPlayer>().PC,0,cardValue);
         }
-        GameSetup.GS.StartTurnTimer();
-        GameSetup.GS.CheckTurn();
+        GameSetup.GS.CoroutineExecute();
     }
 }

@@ -239,8 +239,6 @@ public class GameSetup : MonoBehaviour {
     }
 	void ShuffleCards()
     {
-		
-		
 		for (int i = 0; i < Players.Count; i++)
         {
 			var pc = Players[i].GetComponent<NetworkPlayer>().PC;
@@ -278,28 +276,45 @@ public class GameSetup : MonoBehaviour {
 				//Debug.Log("Checking Player " + j+"'s Card "+i);
 				if (j == currentTurn)
 				{
-					player.playerCards[i].GetComponent<Button>().enabled = true;
+					Debug.Log(player.gameObject.name);
+					player.playerCards[i].gameObject.SetActive(true);
 				}
 				else
 				{
-					player.playerCards[i].GetComponent<Button>().enabled = false;
+					player.playerCards[i].gameObject.SetActive(false);
 				}
+			}
+			if (player.np.isBot && j == currentTurn)
+			{
+				player.SelectCard();
 			}
 		}
 	}
-	public IEnumerator StartTurnTimer()
+	public void CoroutineExecute()
+	{
+        StartCoroutine(StartTurnTimer());
+	}
+
+	IEnumerator StartTurnTimer()
     {
 		float randomNum = Random.Range(1.25f, 2.75f);
+		Debug.Log("Countdown of " + randomNum + "sec");
 		yield return new WaitForSeconds (randomNum);
+		Debug.Log("Countdown of Complete");
 		NextTurn();
     }
 	void NextTurn()
     {
-		currentTurn = currentTurn + 1;
-        if (currentTurn + 1 == 5)
+		Debug.Log("Changes Turn");
+		if (currentTurn < Players.Count-1)
+		{
+			currentTurn += 1;
+		}
+        else
         {
         	currentTurn = 0;
         }
+		CheckTurn();
     }
 	IEnumerator	NextLevelDelay (){
 		while (NextLevelTime != 0) {

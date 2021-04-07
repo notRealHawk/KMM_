@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -65,10 +64,17 @@ public class PlayerController_ : MonoBehaviour
     }
     public void PassCard(PlayerController_ newOwner,int cardIndex,string cardNewValue)
     {
+
         playerCards[cardIndex].Owner = newOwner;
         playerCards[cardIndex].DisplayText.text = cardNewValue;
         playerCards[cardIndex].transform.SetParent(newOwner.PlayerHand.transform);
         playerCards[cardIndex].transform.rotation = Quaternion.identity;
         playerCards[cardIndex].transform.localScale = Vector3.one;
+    }
+
+    public void SelectCard()
+    {
+        int randCard = Random.Range(0,playerCards.Count);
+        playerCards[randCard].OnClickCard();
     }
 }
