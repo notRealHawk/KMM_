@@ -31,17 +31,18 @@ public class PhotonPlayer : MonoBehaviour {
 	}
 	void LateUpdate(){
 		//Spawning PlayerPrefabs on Network w.r.t to their teams and setting their color
-	
+		int SpawnPos = 0;
 		if (player == null&&GameSetup.GS.IsGameStarted) 
 		{
 			Debug.Log("Player is equal to Null");
 			if (MyTeam == 1) {
-				SpawnPicker = Random.Range (0, GameSetup.GS.SpawnpointsTeam1.Length);
-
+				//SpawnPicker = Random.Range (0, GameSetup.GS.SpawnpointsTeam1.Length);
+				
 				if (PV.IsMine && !IsBot) {
 //					Debug.Log ("Spawning Player Avatar in Team 1");
 					player =	PhotonNetwork.Instantiate (Path.Combine ("Players", Playerinfo.PI.Characters [Playerinfo.PI.mySelectedChar].name), 
-						GameSetup.GS.SpawnpointsTeam1 [SpawnPicker].position, GameSetup.GS.SpawnpointsTeam1 [SpawnPicker].rotation, 0);
+						GameSetup.GS.SpawnpointsTeam1 [SpawnPos].position, GameSetup.GS.SpawnpointsTeam1 [SpawnPos].rotation, 0);
+					SpawnPos++;
 					player.GetComponent<NetworkPlayer> ()._photonPlayer = gameObject.GetComponent<PhotonPlayer> ();
 					player.GetComponent<NetworkPlayer> ().Kills = MyKills;
 					//Taking Player Prefab Name from the Playerinfo and Spawning it from the Resources folder 
@@ -58,7 +59,8 @@ public class PhotonPlayer : MonoBehaviour {
 				if (PV.IsMine && !IsBot) {
 					Debug.Log ("Spawning Player Avatar in Team 2");
 					player =	PhotonNetwork.Instantiate (Path.Combine ("Players", Playerinfo.PI.Characters [Playerinfo.PI.mySelectedChar].name), 
-					GameSetup.GS.SpawnpointsTeam2 [SpawnPicker].position, GameSetup.GS.SpawnpointsTeam2 [SpawnPicker].rotation, 0);
+					GameSetup.GS.SpawnpointsTeam2 [SpawnPos].position, GameSetup.GS.SpawnpointsTeam2 [SpawnPos].rotation, 0);
+					SpawnPos++;
 					player.GetComponent<NetworkPlayer> ()._photonPlayer = gameObject.GetComponent<PhotonPlayer> ();
 					player.GetComponent<NetworkPlayer> ().Kills = MyKills;
 					GameSetup.GS.PlayerCustomProperties ["Team"] = MyTeam;

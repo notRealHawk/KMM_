@@ -3280,12 +3280,12 @@ PrefabInstance:
     - target: {fileID: 8598326517487996510, guid: 89aa8870cf52ff146adc40dfac8f4b41,
         type: 3}
       propertyPath: SpawnpointsTeam1.Array.size
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8598326517487996510, guid: 89aa8870cf52ff146adc40dfac8f4b41,
         type: 3}
       propertyPath: SpawnpointsTeam2.Array.size
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8598326517487996510, guid: 89aa8870cf52ff146adc40dfac8f4b41,
         type: 3}
@@ -3351,12 +3351,12 @@ PrefabInstance:
         type: 3}
       propertyPath: SpawnpointsTeam2.Array.data[0]
       value: 
-      objectReference: {fileID: 6068473255762346070}
+      objectReference: {fileID: 6068473257281483918}
     - target: {fileID: 8598326517487996510, guid: 89aa8870cf52ff146adc40dfac8f4b41,
         type: 3}
       propertyPath: SpawnpointsTeam2.Array.data[1]
       value: 
-      objectReference: {fileID: 6068473257281483918}
+      objectReference: {fileID: 6068473256967179477}
     - target: {fileID: 8598326517487996510, guid: 89aa8870cf52ff146adc40dfac8f4b41,
         type: 3}
       propertyPath: SpawnpointsTeam2.Array.data[2]
@@ -3825,7 +3825,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6068473257210706569}
   m_LocalRotation: {x: 0.000000029336663, y: -0, z: -0.000000011175872, w: 1}
-  m_LocalPosition: {x: 4.5486555, y: 10.645106, z: 7.7999854}
+  m_LocalPosition: {x: 4.5486555, y: 10.762, z: 7.74}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 6068473257259692030}
