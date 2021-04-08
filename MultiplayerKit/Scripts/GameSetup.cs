@@ -274,7 +274,7 @@ public class GameSetup : MonoBehaviour {
 			for (int i = 0; i < player.playerCards.Count; i++)
 			{
 				//Debug.Log("Checking Player " + j+"'s Card "+i);
-				if (j == currentTurn)
+				if (j == currentTurn&&!player.np.isBot&&player.np.PV.IsMine)
 				{
 					Debug.Log(player.gameObject.name);
 					player.playerCards[i].gameObject.SetActive(true);

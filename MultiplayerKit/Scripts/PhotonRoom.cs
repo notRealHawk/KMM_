@@ -308,7 +308,7 @@ public class PhotonRoom : MonoBehaviourPunCallbacks, IInRoomCallbacks
 			BotsInGame++;
 			GameSetup.GS.TotalPlayerinGame++;
 			var _BotController = BotController.GetComponent<PhotonPlayer> ();
-			_BotController.MyNumber = PlayersinRoom;
+			_BotController.MyNumber = PlayersInGame+1;
 			PlayersInGame++;
 			PlayersinRoom++;
 		}

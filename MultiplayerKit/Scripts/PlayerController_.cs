@@ -64,12 +64,15 @@ public class PlayerController_ : MonoBehaviour
     }
     public void PassCard(PlayerController_ newOwner,int cardIndex,string cardNewValue)
     {
-
+        //Debug.Log("")
         playerCards[cardIndex].Owner = newOwner;
-        playerCards[cardIndex].DisplayText.text = cardNewValue;
+        playerCards[cardIndex].cardValue = cardNewValue;
+        playerCards[cardIndex].DisplayText.text = playerCards[cardIndex].cardValue;
         playerCards[cardIndex].transform.SetParent(newOwner.PlayerHand.transform);
         playerCards[cardIndex].transform.rotation = Quaternion.identity;
         playerCards[cardIndex].transform.localScale = Vector3.one;
+        newOwner.playerCards.Add(playerCards[cardIndex]);
+        playerCards.Remove(playerCards[cardIndex]);
     }
 
     public void SelectCard()

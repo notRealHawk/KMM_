@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 2138677392}
-  m_IndirectSpecularColor: {r: 0.041674487, g: 0.019617721, b: 0.06920262, a: 1}
+  m_IndirectSpecularColor: {r: 0.22567153, g: 0.1500482, b: 0.291713, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -3259,23 +3259,13 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8598326517487996510, guid: 89aa8870cf52ff146adc40dfac8f4b41,
         type: 3}
-      propertyPath: AlertMessageText
-      value: 
-      objectReference: {fileID: 14234870}
-    - target: {fileID: 8598326517487996510, guid: 89aa8870cf52ff146adc40dfac8f4b41,
-        type: 3}
       propertyPath: BotNames.Array.size
       value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 8598326517487996510, guid: 89aa8870cf52ff146adc40dfac8f4b41,
         type: 3}
-      propertyPath: totalCardsPerPerson
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 8598326517487996510, guid: 89aa8870cf52ff146adc40dfac8f4b41,
-        type: 3}
       propertyPath: BotsSpawnPoints.Array.size
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 8598326517487996510, guid: 89aa8870cf52ff146adc40dfac8f4b41,
         type: 3}
@@ -3289,24 +3279,34 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8598326517487996510, guid: 89aa8870cf52ff146adc40dfac8f4b41,
         type: 3}
+      propertyPath: AlertMessageText
+      value: 
+      objectReference: {fileID: 14234870}
+    - target: {fileID: 8598326517487996510, guid: 89aa8870cf52ff146adc40dfac8f4b41,
+        type: 3}
+      propertyPath: totalCardsPerPerson
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8598326517487996510, guid: 89aa8870cf52ff146adc40dfac8f4b41,
+        type: 3}
       propertyPath: BotsSpawnPoints.Array.data[0]
       value: 
-      objectReference: {fileID: 6068473255762346070}
+      objectReference: {fileID: 6068473257210706566}
     - target: {fileID: 8598326517487996510, guid: 89aa8870cf52ff146adc40dfac8f4b41,
         type: 3}
       propertyPath: BotsSpawnPoints.Array.data[1]
       value: 
-      objectReference: {fileID: 6068473257281483918}
+      objectReference: {fileID: 6068473255762346070}
     - target: {fileID: 8598326517487996510, guid: 89aa8870cf52ff146adc40dfac8f4b41,
         type: 3}
       propertyPath: BotsSpawnPoints.Array.data[2]
       value: 
-      objectReference: {fileID: 6068473256967179477}
+      objectReference: {fileID: 6068473257281483918}
     - target: {fileID: 8598326517487996510, guid: 89aa8870cf52ff146adc40dfac8f4b41,
         type: 3}
       propertyPath: BotsSpawnPoints.Array.data[3]
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 6068473256967179477}
     - target: {fileID: 8598326517487996510, guid: 89aa8870cf52ff146adc40dfac8f4b41,
         type: 3}
       propertyPath: SpawnpointsTeam1.Array.data[0]

@@ -18,19 +18,23 @@ public class Card : MonoBehaviour
 
     public void OnClickCard()
     {
+        
         Debug.Log("Passing Card from Player " + Owner.np._photonPlayer.MyNumber);
         int temp=Owner.np.MyNoinRoom-1;
         int tempIndex = Owner.playerCards.IndexOf(this);
         //Debug.Log("Passing Card from Player " + temp);
-        var nextPlayer = GameSetup.GS.Players[temp+1].GetComponent<NetworkPlayer>().PC;
-        if (temp == GameSetup.GS.currentTurn && nextPlayer.np.MyNoinRoom < GameSetup.GS.Players.Count)
-        {
-            Owner.PassCard(nextPlayer,tempIndex,cardValue);
-        }
-        else
-        {
-            Owner.PassCard(GameSetup.GS.Players[0].GetComponent<NetworkPlayer>().PC,0,cardValue);
-        }
-        GameSetup.GS.CoroutineExecute();
+     
+            
+            if (temp == GameSetup.GS.currentTurn && temp+1 < GameSetup.GS.Players.Count)
+            {
+                var nextPlayer = GameSetup.GS.Players[temp + 1].GetComponent<NetworkPlayer>().PC;
+                Owner.PassCard(nextPlayer, tempIndex, cardValue);
+            }
+            else
+            {
+                Owner.PassCard(GameSetup.GS.Players[0].GetComponent<NetworkPlayer>().PC, 0, cardValue);
+            }
+            GameSetup.GS.CoroutineExecute();
     }
+    
 }
