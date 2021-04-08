@@ -70,7 +70,7 @@ MonoBehaviour:
   PV: {fileID: 1959219400106323069}
   player: {fileID: 0}
   MyTeam: 0
-  MyNumber: 0
+  MyNumber: 1
   MyKills: 0
   IsBot: 1
   MyBotCharacter: 0

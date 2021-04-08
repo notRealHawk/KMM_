@@ -431,4 +431,9 @@ public class PhotonRoom : MonoBehaviourPunCallbacks, IInRoomCallbacks
 				}
 			}
 		}*/
+
+	public void LevelCurrentRoom(){
+		PhotonNetwork.LeaveRoom();
+		Debug.Log("You have Left Room");
+	}
 }

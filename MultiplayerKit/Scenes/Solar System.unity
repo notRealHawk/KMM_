@@ -3270,12 +3270,12 @@ PrefabInstance:
     - target: {fileID: 8598326517487996510, guid: 89aa8870cf52ff146adc40dfac8f4b41,
         type: 3}
       propertyPath: SpawnpointsTeam1.Array.size
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8598326517487996510, guid: 89aa8870cf52ff146adc40dfac8f4b41,
         type: 3}
       propertyPath: SpawnpointsTeam2.Array.size
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8598326517487996510, guid: 89aa8870cf52ff146adc40dfac8f4b41,
         type: 3}
@@ -3351,12 +3351,12 @@ PrefabInstance:
         type: 3}
       propertyPath: SpawnpointsTeam2.Array.data[0]
       value: 
-      objectReference: {fileID: 6068473257281483918}
+      objectReference: {fileID: 6068473255762346070}
     - target: {fileID: 8598326517487996510, guid: 89aa8870cf52ff146adc40dfac8f4b41,
         type: 3}
       propertyPath: SpawnpointsTeam2.Array.data[1]
       value: 
-      objectReference: {fileID: 6068473256967179477}
+      objectReference: {fileID: 6068473257281483918}
     - target: {fileID: 8598326517487996510, guid: 89aa8870cf52ff146adc40dfac8f4b41,
         type: 3}
       propertyPath: SpawnpointsTeam2.Array.data[2]
