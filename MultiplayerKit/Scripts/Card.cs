@@ -20,6 +20,7 @@ public class Card : MonoBehaviour
     {
         Debug.Log("Passing Card from Player " + Owner.np._photonPlayer.MyNumber);
         int temp=Owner.np.MyNoinRoom-1;
+        print(temp);
         int tempIndex = Owner.playerCards.IndexOf(this);
         //Debug.Log("Passing Card from Player " + temp);
         var nextPlayer = GameSetup.GS.Players[temp+1].GetComponent<NetworkPlayer>().PC;

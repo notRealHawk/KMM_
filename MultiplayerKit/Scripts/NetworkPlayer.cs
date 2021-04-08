@@ -50,8 +50,8 @@ public class NetworkPlayer : MonoBehaviour {
 			//Indicator.enabled = true; //can be used later
             Controls.SetActive(true);
             MyNoinRoom = (int)PhotonNetwork.LocalPlayer.CustomProperties ["MyNumber"];
-			MyColor=(int)PhotonNetwork.LocalPlayer.CustomProperties ["MyColor"];
-			Kills=(int)PhotonNetwork.LocalPlayer.CustomProperties ["MyKills"];
+			MyColor = (int)PhotonNetwork.LocalPlayer.CustomProperties ["MyColor"];
+			Kills = (int)PhotonNetwork.LocalPlayer.CustomProperties ["MyKills"];
 			MyName = PhotonNetwork.NickName;
 			MyCharacter = PlayerPrefs.GetInt ("My Character");
 			if (PhotonNetwork.IsMasterClient)
