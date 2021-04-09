@@ -680,6 +680,7 @@ MonoBehaviour:
   m_CaretBlinkRate: 0.85
   m_CaretWidth: 1
   m_ReadOnly: 0
+  m_ShouldActivateOnSelect: 1
 --- !u!1 &640767882318015768
 GameObject:
   m_ObjectHideFlags: 0
@@ -1482,15 +1483,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cfa7acdc16740844e93a5aaeab19470a, type: 3}
---- !u!4 &5700880529377648406 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 7159320510278317848, guid: cfa7acdc16740844e93a5aaeab19470a,
-    type: 3}
-  m_PrefabInstance: {fileID: 3190409672279484430}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &4924202474368042412 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7498727292399447458, guid: cfa7acdc16740844e93a5aaeab19470a,
+    type: 3}
+  m_PrefabInstance: {fileID: 3190409672279484430}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &5700880529377648406 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7159320510278317848, guid: cfa7acdc16740844e93a5aaeab19470a,
     type: 3}
   m_PrefabInstance: {fileID: 3190409672279484430}
   m_PrefabAsset: {fileID: 0}

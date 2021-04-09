@@ -290,7 +290,7 @@ public class GameSetup : MonoBehaviour {
 			}
 		}
 	}
-	public void CoroutineExecute()
+	public void TurnDelay()
 	{
         StartCoroutine(StartTurnTimer());
 	}
@@ -298,12 +298,12 @@ public class GameSetup : MonoBehaviour {
 	IEnumerator StartTurnTimer()
     {
 		float randomNum = Random.Range(1.25f, 2.75f);
-		Debug.Log("Countdown of " + randomNum + "sec");
+		//Debug.Log("Countdown of " + randomNum + "sec");
 		yield return new WaitForSeconds (randomNum);
-		Debug.Log("Countdown of Complete");
+		//Debug.Log("Countdown of Complete");
 		NextTurn();
     }
-	void NextTurn()
+	public void NextTurn()
     {
 		Debug.Log("Changes Turn");
 		if (currentTurn < Players.Count-1)
@@ -316,6 +316,16 @@ public class GameSetup : MonoBehaviour {
         }
 		CheckTurn();
     }
+
+	public void BlockCard(Card passedCard)
+	{
+		passedCard.Iteration++;
+		if (passedCard.Iteration == 4)
+		{
+			passedCard.gameObject.GetComponent<Button>().onClick.RemoveListener(() => passedCard.OnClickCard());
+			passedCard.isBlocked = true;
+		}
+	}
 	IEnumerator	NextLevelDelay (){
 		while (NextLevelTime != 0) {
 			yield return new WaitForSeconds (1f);
@@ -326,6 +336,7 @@ public class GameSetup : MonoBehaviour {
 			NextBtnClick ();
 		}
 	}
+	
 	[PunRPC]
 	public void SendReward(int position){
 			Debug.Log ("Position=" + position);
@@ -368,8 +379,7 @@ public class GameSetup : MonoBehaviour {
 	}
 	void LateUpdate()
 	{
-			ScoreUpdate ();
-
+		ScoreUpdate ();
 	}
 
 	void ScoreUpdate(){

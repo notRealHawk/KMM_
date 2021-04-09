@@ -31,6 +31,7 @@ public class PlayerController_ : MonoBehaviour
         if (np.isBot)
         {
             userInput.text = GameSetup.GS.Alphabets[UnityEngine.Random.Range(0, GameSetup.GS.Alphabets.Count)];
+            //GameSetup.GS.Alphabets.Remove(userInput.text);
             SubmitText();
         }
     }
@@ -66,17 +67,40 @@ public class PlayerController_ : MonoBehaviour
     {
         //Debug.Log("")
         playerCards[cardIndex].Owner = newOwner;
-        playerCards[cardIndex].cardValue = cardNewValue;
-        playerCards[cardIndex].DisplayText.text = playerCards[cardIndex].cardValue;
+        //playerCards[cardIndex].cardValue = cardNewValue;
+        //playerCards[cardIndex].DisplayText.text = playerCards[cardIndex].cardValue;
         playerCards[cardIndex].transform.SetParent(newOwner.PlayerHand.transform);
         playerCards[cardIndex].transform.rotation = Quaternion.identity;
         playerCards[cardIndex].transform.localScale = Vector3.one;
         newOwner.playerCards.Add(playerCards[cardIndex]);
+        GameSetup.GS.BlockCard(playerCards[cardIndex]);
         playerCards.Remove(playerCards[cardIndex]);
     }
-
     public void SelectCard()
     {
+        /*List<int> SelectedCard = new List<int>();
+        for(int i=0; i < playerCards.Count; i++)
+        {
+            for(int j=i+1; j < playerCards.Count; j++){
+                if (playerCards[i].DisplayText.text == playerCards[j].DisplayText.text)
+                {
+                    // if (!CompoundCards.Contains(playerCards[i]))
+                    // {
+                    //     CompoundCards.Add(playerCards[i]);
+                    // }
+                    playerCards[i].CardCounter++;
+                    playerCards[j].CardCounter++;
+                }
+                else if (playerCards[i].DisplayText.text != playerCards[j].DisplayText.text){
+                    if(playerCards[j].CardCounter <= playerCards[i].CardCounter && !SelectedCard.Contains(j))
+                    {
+                        SelectedCard.Add(j);
+                    }
+                }
+            }
+        }
+        int randCard = Random.Range(0,SelectedCard.Count);
+        playerCards[SelectedCard[randCard]].OnClickCard();*/
         int randCard = Random.Range(0,playerCards.Count);
         playerCards[randCard].OnClickCard();
     }

@@ -11,6 +11,7 @@ public class Card : MonoBehaviour
     public Button button;
     public Text DisplayText;
     public PlayerController_ Owner;
+    public int CardCounter;
     private void Start()
     {
         button.onClick.AddListener(() => OnClickCard());
@@ -18,14 +19,16 @@ public class Card : MonoBehaviour
 
     public void OnClickCard()
     {
-        
+        if(isBlocked){
+            Debug.Log("This card is blocked");
+            GameSetup.GS.CheckTurn();
+            return;
+        }
         Debug.Log("Passing Card from Player " + Owner.np._photonPlayer.MyNumber);
         int temp=Owner.np.MyNoinRoom-1;
         print(temp);
         int tempIndex = Owner.playerCards.IndexOf(this);
         //Debug.Log("Passing Card from Player " + temp);
-     
-            
             if (temp == GameSetup.GS.currentTurn && temp+1 < GameSetup.GS.Players.Count)
             {
                 var nextPlayer = GameSetup.GS.Players[temp + 1].GetComponent<NetworkPlayer>().PC;
@@ -35,7 +38,7 @@ public class Card : MonoBehaviour
             {
                 Owner.PassCard(GameSetup.GS.Players[0].GetComponent<NetworkPlayer>().PC, 0, cardValue);
             }
-            GameSetup.GS.CoroutineExecute();
+            GameSetup.GS.TurnDelay();
     }
     
 }
