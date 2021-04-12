@@ -21,7 +21,8 @@ public class Card : MonoBehaviour
     {
         if(isBlocked){
             Debug.Log("This card is blocked");
-            GameSetup.GS.CheckTurn();
+            Owner.SelectCard();
+            //GameSetup.GS.CheckTurn();
             return;
         }
         Debug.Log("Passing Card from Player " + Owner.np._photonPlayer.MyNumber);

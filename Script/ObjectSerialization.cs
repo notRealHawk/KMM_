@@ -23,7 +23,10 @@ public class ObjectSerialization : MonoBehaviour
 	public void SaveDataInFile()
 	{
 		Debug.Log("Name : " + name);
-		data.indexes.Clear();
+		if(data != null)
+		{
+			data.indexes.Clear();
+		}
 		for (int i = 0; i < features.Count; i++)
 		{
 			//Debug.Log();

@@ -22,6 +22,8 @@ public class GameSetup : MonoBehaviour {
 	public Transform[] ResultStagePoints;
 	public Color32[] Colors;
 	public string[] BotNames;
+    public bool gameOver;
+	public Text WinnerTextDisplay;
 	#region CardMangerReigon
 
     public List<string> Alphabets = new List<string>();
@@ -284,6 +286,8 @@ public class GameSetup : MonoBehaviour {
 					player.playerCards[i].gameObject.SetActive(false);
 				}
 			}
+			DeckCompleteCheck(Players[j]);
+			print(Players[j]);
 			if (player.np.isBot && j == currentTurn)
 			{
 				player.SelectCard();
@@ -320,12 +324,60 @@ public class GameSetup : MonoBehaviour {
 	public void BlockCard(Card passedCard)
 	{
 		passedCard.Iteration++;
-		if (passedCard.Iteration == 4)
+		if (passedCard.Iteration >= 4)
 		{
+		var player = Players[currentTurn].GetComponent<NetworkPlayer>().PC;
+		print(player.gameObject.name);
+			for (int i = 0; i < player.playerCards.Count; i++)
+			{
+				if (player.playerCards[i].isBlocked == true)
+				{
+					player.playerCards[i].GetComponent<Button>().onClick.AddListener(() => player.playerCards[i].OnClickCard());
+					player.playerCards[i].isBlocked = false;
+				}
+			}
 			passedCard.gameObject.GetComponent<Button>().onClick.RemoveListener(() => passedCard.OnClickCard());
 			passedCard.isBlocked = true;
 		}
 	}
+
+	public void DeckCompleteCheck(GameObject currentPlayer)
+    {
+        int counterCheck = 1;
+		var player = Players[currentTurn].GetComponent<NetworkPlayer>().PC;
+        
+        for(int i = 0; i < player.playerCards.Count; i++)
+        {
+            for (int j = i+1; j < player.playerCards.Count; j++)
+            {
+                if (player.playerCards[i].cardValue == player.playerCards[j].cardValue)
+                {
+                    counterCheck++;
+                }
+            }
+            if (counterCheck >= 4)
+            {
+                goto Recheck;
+            }
+            else
+            {
+                counterCheck = 1;
+            }
+        }
+		return;
+        Recheck:
+		WinnerTextDisplay.gameObject.SetActive(true);
+		WinnerTextDisplay.text = Players[currentTurn].GetComponent<NetworkPlayer>().MyName + " has Won";
+		//currentPlayer.transform.GetChild(0).Find("Locker").gameObject.SetActive(true);
+		Finish();
+	}
+
+	void Finish()
+    {
+        gameOver = true;
+        //BackButton.gameObject.SetActive(true);
+    }
+
 	IEnumerator	NextLevelDelay (){
 		while (NextLevelTime != 0) {
 			yield return new WaitForSeconds (1f);

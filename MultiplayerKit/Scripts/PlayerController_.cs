@@ -65,16 +65,18 @@ public class PlayerController_ : MonoBehaviour
     }
     public void PassCard(PlayerController_ newOwner,int cardIndex,string cardNewValue)
     {
-        //Debug.Log("")
-        playerCards[cardIndex].Owner = newOwner;
-        //playerCards[cardIndex].cardValue = cardNewValue;
-        //playerCards[cardIndex].DisplayText.text = playerCards[cardIndex].cardValue;
-        playerCards[cardIndex].transform.SetParent(newOwner.PlayerHand.transform);
-        playerCards[cardIndex].transform.rotation = Quaternion.identity;
-        playerCards[cardIndex].transform.localScale = Vector3.one;
-        newOwner.playerCards.Add(playerCards[cardIndex]);
-        GameSetup.GS.BlockCard(playerCards[cardIndex]);
-        playerCards.Remove(playerCards[cardIndex]);
+        if(GameSetup.GS.gameOver != true){
+            //Debug.Log("")
+            playerCards[cardIndex].Owner = newOwner;
+            //playerCards[cardIndex].cardValue = cardNewValue;
+            //playerCards[cardIndex].DisplayText.text = playerCards[cardIndex].cardValue;
+            playerCards[cardIndex].transform.SetParent(newOwner.PlayerHand.transform);
+            playerCards[cardIndex].transform.rotation = Quaternion.identity;
+            playerCards[cardIndex].transform.localScale = Vector3.one;
+            newOwner.playerCards.Add(playerCards[cardIndex]);
+            GameSetup.GS.BlockCard(playerCards[cardIndex]);
+            playerCards.Remove(playerCards[cardIndex]);
+        }
     }
     public void SelectCard()
     {
@@ -100,7 +102,15 @@ public class PlayerController_ : MonoBehaviour
             }
         }
         int randCard = Random.Range(0,SelectedCard.Count);
-        playerCards[SelectedCard[randCard]].OnClickCard();*/
+        print(randCard);
+        if(SelectedCard != null)
+        {
+            playerCards[SelectedCard[randCard]].OnClickCard();
+        }
+        else{
+            int rCard = Random.Range(0,playerCards.Count);
+            playerCards[randCard].OnClickCard();
+        }*/
         int randCard = Random.Range(0,playerCards.Count);
         playerCards[randCard].OnClickCard();
     }

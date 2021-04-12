@@ -5,11 +5,13 @@ using UnityEngine;
 public class AnimationControl : MonoBehaviour
 {
     public Animator anim;
-    float valueChange = 0;
+    float valueChange;
     public float increament;
     bool increase, decrease;
-    void Start(){
-        anim.SetFloat("AnimationBlend", 0);
+    void Awake(){
+        valueChange = Random.Range(0f,1f);
+        anim.SetFloat("AnimationBlend", valueChange);
+        increase = true;
     }
 
     void Update()
