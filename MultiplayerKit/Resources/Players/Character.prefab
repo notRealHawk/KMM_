@@ -483,7 +483,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &640767881514293341
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1015,6 +1015,8 @@ MonoBehaviour:
   submitButton: {fileID: 640767881357446600}
   enteredText: 
   PlayerHand: {fileID: 640767882318015768}
+  LastBlockedCard: {fileID: 0}
+  Locker: {fileID: 640767881514293338}
   playerCards:
   - {fileID: 9022837865154443660}
   - {fileID: 3112111868139240713}

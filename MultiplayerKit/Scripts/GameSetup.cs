@@ -25,7 +25,7 @@ public class GameSetup : MonoBehaviour {
     public bool gameOver;
 	public Text WinnerTextDisplay;
 	#region CardMangerReigon
-
+	public Button ExitGameButton;
     public List<string> Alphabets = new List<string>();
     [SerializeField]
 	List<Card> allCards = new List<Card>();
@@ -269,28 +269,31 @@ public class GameSetup : MonoBehaviour {
 	}
 	public void CheckTurn()
     {
-		for (int j = 0; j < Players.Count; j++)
-		{
-			var player = Players[j].GetComponent<NetworkPlayer>().PC;
-			//Debug.Log("Checking Player"+j);
-			for (int i = 0; i < player.playerCards.Count; i++)
+		if(!gameOver){
+			for (int j = 0; j < Players.Count; j++)
 			{
-				//Debug.Log("Checking Player " + j+"'s Card "+i);
-				if (j == currentTurn&&!player.np.isBot&&player.np.PV.IsMine)
+				var player = Players[j].GetComponent<NetworkPlayer>().PC;
+				//Debug.Log("Checking Player"+j);
+				for (int i = 0; i < player.playerCards.Count; i++)
 				{
-					Debug.Log(player.gameObject.name);
-					player.playerCards[i].gameObject.SetActive(true);
+					//Debug.Log("Checking Player " + j+"'s Card "+i);
+					if (j == currentTurn&&!player.np.isBot&&player.np.PV.IsMine)
+					{
+						player.Locker.gameObject.SetActive(false);
+						Debug.Log(player.gameObject.name);
+						player.playerCards[i].gameObject.SetActive(true);
+					}
+					else
+					{
+						player.playerCards[i].gameObject.SetActive(false);
+					}
 				}
-				else
+				DeckCompleteCheck(Players[j]);
+				print(Players[j]);
+				if (player.np.isBot && j == currentTurn)
 				{
-					player.playerCards[i].gameObject.SetActive(false);
+					player.SelectCard();
 				}
-			}
-			DeckCompleteCheck(Players[j]);
-			print(Players[j]);
-			if (player.np.isBot && j == currentTurn)
-			{
-				player.SelectCard();
 			}
 		}
 	}
@@ -328,16 +331,22 @@ public class GameSetup : MonoBehaviour {
 		{
 		var player = Players[currentTurn].GetComponent<NetworkPlayer>().PC;
 		print(player.gameObject.name);
-			for (int i = 0; i < player.playerCards.Count; i++)
+		if (player.LastBlockedCard != null)
+		{
+			player.LastBlockedCard.GetComponent<Button>().onClick.AddListener(() => player.LastBlockedCard.OnClickCard());
+			player.LastBlockedCard.isBlocked = false;
+		}
+		/*for (int i = 0; i < player.playerCards.Count; i++)
+		{
+			if (player.playerCards[i].isBlocked == true)
 			{
-				if (player.playerCards[i].isBlocked == true)
-				{
-					player.playerCards[i].GetComponent<Button>().onClick.AddListener(() => player.playerCards[i].OnClickCard());
-					player.playerCards[i].isBlocked = false;
-				}
+				player.playerCards[i].GetComponent<Button>().onClick.AddListener(() => player.playerCards[i].OnClickCard());
+				player.playerCards[i].isBlocked = false;
 			}
-			passedCard.gameObject.GetComponent<Button>().onClick.RemoveListener(() => passedCard.OnClickCard());
-			passedCard.isBlocked = true;
+		}*/
+		passedCard.gameObject.GetComponent<Button>().onClick.RemoveListener(() => passedCard.OnClickCard());
+		passedCard.isBlocked = true;
+		player.LastBlockedCard = passedCard;
 		}
 	}
 
@@ -376,6 +385,12 @@ public class GameSetup : MonoBehaviour {
     {
         gameOver = true;
         //BackButton.gameObject.SetActive(true);
+		for (int i = 0; i < Players.Count; i++)
+		{
+			var player = Players[i].GetComponent<NetworkPlayer>().PC;
+			player.Locker.gameObject.SetActive(true);
+		}
+		ExitGameButton.gameObject.SetActive(true);
     }
 
 	IEnumerator	NextLevelDelay (){
@@ -461,6 +476,9 @@ public class GameSetup : MonoBehaviour {
 		for (int i = 0; i < order.Length; i++) {
 			order [i].SetSiblingIndex (places [i]);
 		}
+	}
+	public void DisconnectFromRoom(){
+		StartCoroutine(DisConnectandLoad());
 	}
 	IEnumerator DisConnectandLoad(){
 		PhotonNetwork.LeaveRoom ();

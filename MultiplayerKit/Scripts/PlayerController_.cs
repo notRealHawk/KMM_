@@ -15,6 +15,8 @@ public class PlayerController_ : MonoBehaviour
     public string enteredText;
     //public GameManager _gameManager;
     public GameObject PlayerHand;
+    public Card LastBlockedCard;
+    public GameObject Locker;
     public List<Card> playerCards = new List<Card>();
     public bool readyToPlay;
 
@@ -65,7 +67,7 @@ public class PlayerController_ : MonoBehaviour
     }
     public void PassCard(PlayerController_ newOwner,int cardIndex,string cardNewValue)
     {
-        if(GameSetup.GS.gameOver != true){
+        if(!GameSetup.GS.gameOver){
             //Debug.Log("")
             playerCards[cardIndex].Owner = newOwner;
             //playerCards[cardIndex].cardValue = cardNewValue;
@@ -76,6 +78,11 @@ public class PlayerController_ : MonoBehaviour
             newOwner.playerCards.Add(playerCards[cardIndex]);
             GameSetup.GS.BlockCard(playerCards[cardIndex]);
             playerCards.Remove(playerCards[cardIndex]);
+            Locker.gameObject.SetActive(true);
+        }
+        else
+        {
+            return;
         }
     }
     public void SelectCard()
