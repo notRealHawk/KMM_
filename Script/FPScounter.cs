@@ -5,11 +5,24 @@ using UnityEngine.UI;
 
 public class FPScounter : MonoBehaviour
 {
+    
+    // int fps;
+    // void Update()
+    // {
+    //     fps = (int)(1/Time.unscaledDeltaTime);
+    //     fpsDisplay.text = fps.ToString();
+    // }
+    public float timer, refresh, avgFramerate;
+    string display = "{0} FPS";
     public Text fpsDisplay;
-    int fps;
-    void Update()
+
+    private void Update()
     {
-        fps = (int)(1/Time.unscaledDeltaTime);
-        fpsDisplay.text = fps.ToString();
+        //Change smoothDeltaTime to deltaTime or fixedDeltaTime to see the difference
+        float timelapse = Time.smoothDeltaTime;
+        timer = timer <= 0 ? refresh : timer -= timelapse;
+ 
+        if(timer <= 0) avgFramerate = (int) (1f / timelapse);
+        fpsDisplay.text = string.Format(display,avgFramerate.ToString());
     }
 }

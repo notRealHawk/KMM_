@@ -35,6 +35,7 @@ public class MainMenu : MonoBehaviour {
 
 	void Awake(){
 		mainMenu = this;
+		Time.timeScale = 1;
 	}
 	void Start(){
 

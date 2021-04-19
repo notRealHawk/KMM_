@@ -19,6 +19,9 @@ public class Card : MonoBehaviour
 
     public void OnClickCard()
     {
+        if(Input.touchCount > 1){
+            return;
+        }
         if(isBlocked){
             Debug.Log("This card is blocked");
             //Owner.SelectCard();
@@ -37,9 +40,9 @@ public class Card : MonoBehaviour
             }
             else
             {
-                Owner.PassCard(GameSetup.GS.Players[0].GetComponent<NetworkPlayer>().PC, 0, cardValue);
+                var nextPlayer = GameSetup.GS.Players[0].GetComponent<NetworkPlayer>().PC;
+                Owner.PassCard(nextPlayer, 0, cardValue);
             }
             GameSetup.GS.TurnDelay();
     }
-    
 }

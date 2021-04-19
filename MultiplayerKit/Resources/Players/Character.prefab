@@ -1024,6 +1024,7 @@ MonoBehaviour:
   - {fileID: 9129954746434269850}
   - {fileID: 3611710338829965540}
   readyToPlay: 0
+  isTurnComplete: 0
 --- !u!114 &2190123815839838143
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1050,6 +1051,7 @@ MonoBehaviour:
   - {fileID: 9129954746434269850}
   - {fileID: 3611710338829965540}
   readyToPlay: 0
+  isTurnComplete: 0
 --- !u!1 &8321033621085081251
 GameObject:
   m_ObjectHideFlags: 0

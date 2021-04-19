@@ -384,6 +384,7 @@ public class GameSetup : MonoBehaviour {
 	void Finish()
     {
         gameOver = true;
+		Time.timeScale = 0;
         //BackButton.gameObject.SetActive(true);
 		for (int i = 0; i < Players.Count; i++)
 		{
@@ -485,6 +486,7 @@ public class GameSetup : MonoBehaviour {
 		while (PhotonNetwork.InRoom) 
 			yield return null;
 		SceneManager.LoadScene (MultiplayerSettings.multiplayersetting.menuScene);
+		//Time.timeScale = 1;
 	}
 	public void UpdateTeam(){
 		

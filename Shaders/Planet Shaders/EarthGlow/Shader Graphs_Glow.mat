@@ -10,7 +10,7 @@ Material:
   m_Name: Shader Graphs_Glow
   m_Shader: {fileID: -6465566751694194690, guid: 23008b719b5f2c14daa8ffa90749f2f1,
     type: 3}
-  m_ShaderKeywords: 
+  m_ShaderKeywords: _NORMALMAP
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -33,11 +33,11 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _BaseMap:
-        m_Texture: {fileID: 2800000, guid: 3d79eaac2df50804a94c6e989556c36d, type: 3}
+        m_Texture: {fileID: 2800000, guid: 9545cdbb3fe7d344dbd1d7bbd24a1e65, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _BumpMap:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: b2da0d16e8945ed489b974f25efbcacf, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _EmissionMap:
@@ -45,7 +45,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 3d79eaac2df50804a94c6e989556c36d, type: 3}
+        m_Texture: {fileID: 2800000, guid: 9545cdbb3fe7d344dbd1d7bbd24a1e65, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
@@ -61,9 +61,9 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
-    - Vector1_139A7B19: 2.68
-    - Vector1_5511DD94: 0.481
-    - Vector1_86C483F1: 0
+    - Vector1_139A7B19: 3.38
+    - Vector1_5511DD94: 0.473
+    - Vector1_86C483F1: 0.305
     - _AlphaClip: 0
     - _Blend: 0
     - _BumpScale: 1
@@ -86,7 +86,7 @@ Material:
     - _WorkflowMode: 1
     - _ZWrite: 1
     m_Colors:
-    - Color_601F0979: {r: 0, g: 0.6973076, b: 2, a: 0}
+    - Color_601F0979: {r: 0, g: 1.0509804, b: 2.9960785, a: 0}
     - Color_BFC576A4: {r: 1, g: 0, b: 0.076999664, a: 0}
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}

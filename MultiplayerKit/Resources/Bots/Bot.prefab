@@ -26,6 +26,7 @@ MonoBehaviour:
   - {fileID: 7835213458922063588}
   - {fileID: 8104447563515035248}
   readyToPlay: 0
+  isTurnComplete: 0
 --- !u!1 &1464791180533693073
 GameObject:
   m_ObjectHideFlags: 0

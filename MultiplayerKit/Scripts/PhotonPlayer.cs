@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
 using System.IO;
+using System.Linq;
 public class PhotonPlayer : MonoBehaviour {
  
 	public PhotonView PV;
@@ -25,6 +26,7 @@ public class PhotonPlayer : MonoBehaviour {
 			MyBotCharacter = Random.Range (0, Playerinfo.PI.Bots.Length);
 			int temp = Random.Range (0, GameSetup.GS.BotNames.Length);
 			BotName = GameSetup.GS.BotNames [temp];
+			GameSetup.GS.BotNames = GameSetup.GS.BotNames.Where(val => val != BotName).ToArray();
 		}
 		PV.RPC ("RPC_GetTeam", RpcTarget.MasterClient);
 
@@ -37,7 +39,6 @@ public class PhotonPlayer : MonoBehaviour {
 			Debug.Log("Player is equal to Null");
 			if (MyTeam == 1) {
 				//SpawnPicker = Random.Range (0, GameSetup.GS.SpawnpointsTeam1.Length);
-				
 				if (PV.IsMine && !IsBot) {
 //					Debug.Log ("Spawning Player Avatar in Team 1");
 					player =	PhotonNetwork.Instantiate (Path.Combine ("Players", Playerinfo.PI.Characters [Playerinfo.PI.mySelectedChar].name), 
@@ -79,7 +80,7 @@ public class PhotonPlayer : MonoBehaviour {
         Debug.Log("Bot Number" + MyNumber);
         //		Debug.Log ("Spawning Bot"+GameSetup.GS.BotsSpawnPoints [MyNumber-1].gameObject.name);
         player =	PhotonNetwork.InstantiateRoomObject (Path.Combine ("Bots", Playerinfo.PI.Bots [MyBotCharacter].name), 
-			GameSetup.GS.BotsSpawnPoints [MyNumber-1].position, GameSetup.GS.BotsSpawnPoints [MyNumber-1].rotation, 0);
+			GameSetup.GS.BotsSpawnPoints [MyNumber-2].position, GameSetup.GS.BotsSpawnPoints [MyNumber-2].rotation, 0);
 			print(player);
 			player.GetComponent<NetworkPlayer> ()._photonPlayer = gameObject.GetComponent<PhotonPlayer> ();
 			player.GetComponent<NetworkPlayer> ().Kills = MyKills;

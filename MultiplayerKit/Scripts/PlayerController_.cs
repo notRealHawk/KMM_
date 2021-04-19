@@ -19,6 +19,7 @@ public class PlayerController_ : MonoBehaviour
     public GameObject Locker;
     public List<Card> playerCards = new List<Card>();
     public bool readyToPlay;
+    public bool isTurnComplete = false;
 
     private void Start()
     {
@@ -69,6 +70,7 @@ public class PlayerController_ : MonoBehaviour
     {
         if(!GameSetup.GS.gameOver){
             //Debug.Log("")
+            Locker.gameObject.SetActive(true);
             playerCards[cardIndex].Owner = newOwner;
             //playerCards[cardIndex].cardValue = cardNewValue;
             //playerCards[cardIndex].DisplayText.text = playerCards[cardIndex].cardValue;
@@ -78,7 +80,6 @@ public class PlayerController_ : MonoBehaviour
             newOwner.playerCards.Add(playerCards[cardIndex]);
             GameSetup.GS.BlockCard(playerCards[cardIndex]);
             playerCards.Remove(playerCards[cardIndex]);
-            Locker.gameObject.SetActive(true);
         }
         else
         {
@@ -87,38 +88,44 @@ public class PlayerController_ : MonoBehaviour
     }
     public void SelectCard()
     {
-        /*List<int> SelectedCard = new List<int>();
+        List<int> SelectedCard = new List<int>();
+        List<int> OtherCards = new List<int>();
         for(int i=0; i < playerCards.Count; i++)
         {
             for(int j=i+1; j < playerCards.Count; j++){
                 if (playerCards[i].DisplayText.text == playerCards[j].DisplayText.text)
                 {
-                    // if (!CompoundCards.Contains(playerCards[i]))
-                    // {
-                    //     CompoundCards.Add(playerCards[i]);
-                    // }
                     playerCards[i].CardCounter++;
                     playerCards[j].CardCounter++;
+                    if(!SelectedCard.Contains(i)){
+                        SelectedCard.Add(i);
+                    }
+                    continue;
                 }
                 else if (playerCards[i].DisplayText.text != playerCards[j].DisplayText.text){
-                    if(playerCards[j].CardCounter <= playerCards[i].CardCounter && !SelectedCard.Contains(j))
+                    if(playerCards[j].CardCounter <= playerCards[i].CardCounter && !SelectedCard.Contains(j) && !playerCards[j].isBlocked)
                     {
                         SelectedCard.Add(j);
                     }
+                    // else{
+                    //     goto RandomSelect;
+                    // }
                 }
+                
             }
         }
-        int randCard = Random.Range(0,SelectedCard.Count);
-        print(randCard);
         if(SelectedCard != null)
         {
+            int randCard = Random.Range(0,SelectedCard.Count);
             playerCards[SelectedCard[randCard]].OnClickCard();
         }
         else{
             int rCard = Random.Range(0,playerCards.Count);
-            playerCards[randCard].OnClickCard();
-        }*/
-        int randCard = Random.Range(0,playerCards.Count);
-        playerCards[randCard].OnClickCard();
+            playerCards[rCard].OnClickCard();
+        }
+        // return;
+        // RandomSelect:
+        //     int randSelectCard = Random.Range(0,playerCards.Count);
+        //     playerCards[randSelectCard].OnClickCard();
     }
 }
