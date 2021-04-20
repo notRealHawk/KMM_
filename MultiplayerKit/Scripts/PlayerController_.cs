@@ -70,6 +70,11 @@ public class PlayerController_ : MonoBehaviour
     {
         if(!GameSetup.GS.gameOver){
             //Debug.Log("")
+            if (LastBlockedCard != null)
+			{
+				LastBlockedCard.GetComponent<Button>().onClick.AddListener(() => LastBlockedCard.OnClickCard());
+				LastBlockedCard.isBlocked = false;
+			}
             Locker.gameObject.SetActive(true);
             playerCards[cardIndex].Owner = newOwner;
             //playerCards[cardIndex].cardValue = cardNewValue;

@@ -329,24 +329,16 @@ public class GameSetup : MonoBehaviour {
 		passedCard.Iteration++;
 		if (passedCard.Iteration >= 4)
 		{
-		var player = Players[currentTurn].GetComponent<NetworkPlayer>().PC;
-		print(player.gameObject.name);
-		if (player.LastBlockedCard != null)
-		{
-			player.LastBlockedCard.GetComponent<Button>().onClick.AddListener(() => player.LastBlockedCard.OnClickCard());
-			player.LastBlockedCard.isBlocked = false;
-		}
-		/*for (int i = 0; i < player.playerCards.Count; i++)
-		{
-			if (player.playerCards[i].isBlocked == true)
-			{
-				player.playerCards[i].GetComponent<Button>().onClick.AddListener(() => player.playerCards[i].OnClickCard());
-				player.playerCards[i].isBlocked = false;
-			}
-		}*/
-		passedCard.gameObject.GetComponent<Button>().onClick.RemoveListener(() => passedCard.OnClickCard());
-		passedCard.isBlocked = true;
-		player.LastBlockedCard = passedCard;
+			var player = Players[currentTurn].GetComponent<NetworkPlayer>().PC;
+			print(player.gameObject.name);
+			// if (player.LastBlockedCard != null)
+			// {
+			// 	player.LastBlockedCard.GetComponent<Button>().onClick.AddListener(() => player.LastBlockedCard.OnClickCard());
+			// 	player.LastBlockedCard.isBlocked = false;
+			// }
+			passedCard.gameObject.GetComponent<Button>().onClick.RemoveListener(() => passedCard.OnClickCard());
+			passedCard.isBlocked = true;
+			player.LastBlockedCard = passedCard;
 		}
 	}
 

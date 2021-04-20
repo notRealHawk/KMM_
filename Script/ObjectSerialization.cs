@@ -32,15 +32,17 @@ public class ObjectSerialization : MonoBehaviour
 			//Debug.Log();
 			data.indexes.Add(features[i].currIndex);
 		}
+		string path = Path.Combine(Application.persistentDataPath + "/data.json");
 		string newdata = JsonUtility.ToJson(data);
-		SaveSystem.Save("PlayerData", newdata);
+		File.WriteAllText(path, newdata);
+		//SaveSystem.Save("PlayerData", newdata);
 		Debug.Log(newdata);
 		//LoadData();
 	}
 	public void LoadDataFromFile()
 	{
-		string mydata = SaveSystem.Load("PlayerData");
-		data = JsonUtility.FromJson<Data>(mydata);
+		//string mydata = SaveSystem.Load("PlayerData");
+		data = JsonUtility.FromJson<Data>(File.ReadAllText(Application.persistentDataPath + "/data.json"));
 		Debug.Log("Data Loaded From File");
 		if (data != null)
 		{
