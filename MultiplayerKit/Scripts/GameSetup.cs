@@ -244,6 +244,8 @@ public class GameSetup : MonoBehaviour {
 		for (int i = 0; i < Players.Count; i++)
         {
 			var pc = Players[i].GetComponent<NetworkPlayer>().PC;
+			//print(Players[i].GetComponent<NetworkPlayer>());
+			//print(pc.gameObject);
 			for (int j = 0; j < pc.playerCards.Count; j++)
             {
 				allCards.Add(pc.playerCards[j]);
@@ -279,6 +281,7 @@ public class GameSetup : MonoBehaviour {
 					//Debug.Log("Checking Player " + j+"'s Card "+i);
 					if (j == currentTurn&&!player.np.isBot&&player.np.PV.IsMine)
 					{
+						//player.gameObject.GetComponent<AnimationControl>().PassToIdle();
 						player.Locker.gameObject.SetActive(false);
 						Debug.Log(player.gameObject.name);
 						player.playerCards[i].gameObject.SetActive(true);
@@ -312,6 +315,7 @@ public class GameSetup : MonoBehaviour {
     }
 	public void NextTurn()
     {
+
 		Debug.Log("Changes Turn");
 		if (currentTurn < Players.Count-1)
 		{

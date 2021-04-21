@@ -446,6 +446,16 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: -109
       objectReference: {fileID: 0}
+    - target: {fileID: 1820192461805511154, guid: 0b25d85075eaf7d4e829dea3db84c207,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: d24c009e9b9010e4ba8f56dc372141d3, type: 2}
+    - target: {fileID: 2092837740099053429, guid: 0b25d85075eaf7d4e829dea3db84c207,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: d0ea13d0253e8a941ac9fde2df955942, type: 2}
     - target: {fileID: 2593996200238196661, guid: 0b25d85075eaf7d4e829dea3db84c207,
         type: 3}
       propertyPath: m_Intensity
@@ -496,6 +506,11 @@ PrefabInstance:
       propertyPath: m_LocalPosition.x
       value: 146.2
       objectReference: {fileID: 0}
+    - target: {fileID: 3081095014256038943, guid: 0b25d85075eaf7d4e829dea3db84c207,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 428982d799338a74c8c0cd8282f0d970, type: 2}
     - target: {fileID: 3445939176118034535, guid: 0b25d85075eaf7d4e829dea3db84c207,
         type: 3}
       propertyPath: m_Enabled
@@ -505,7 +520,12 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: cbd83ddb8a0521c4ba2ff1129bb9e475, type: 2}
+      objectReference: {fileID: 2100000, guid: 82c3124558e6cc04ea4060ed9bb2607e, type: 2}
+    - target: {fileID: 3501449885798356951, guid: 0b25d85075eaf7d4e829dea3db84c207,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 5bbd407914e0cb940a70bab81426db28, type: 2}
     - target: {fileID: 4003403631584707057, guid: 0b25d85075eaf7d4e829dea3db84c207,
         type: 3}
       propertyPath: m_StaticEditorFlags
@@ -551,6 +571,11 @@ PrefabInstance:
       propertyPath: m_StaticEditorFlags
       value: 4294967295
       objectReference: {fileID: 0}
+    - target: {fileID: 5775551842047451147, guid: 0b25d85075eaf7d4e829dea3db84c207,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: f188f00626bfa264083aaa2f058630dd, type: 2}
     - target: {fileID: 5899253021177193171, guid: 0b25d85075eaf7d4e829dea3db84c207,
         type: 3}
       propertyPath: m_LocalScale.x
@@ -616,6 +641,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -24.857971
       objectReference: {fileID: 0}
+    - target: {fileID: 6452614594795400102, guid: 0b25d85075eaf7d4e829dea3db84c207,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 7063489d8f89a124da20f3a815b260bf, type: 2}
     - target: {fileID: 6746649558596683423, guid: 0b25d85075eaf7d4e829dea3db84c207,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -705,6 +735,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_StaticEditorFlags
       value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 8254961068457508839, guid: 0b25d85075eaf7d4e829dea3db84c207,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8254961068457508839, guid: 0b25d85075eaf7d4e829dea3db84c207,
         type: 3}
@@ -2654,7 +2689,7 @@ Camera:
     y: 0
     width: 1
     height: 1
-  near clip plane: 0.1
+  near clip plane: 0.01
   far clip plane: 1200
   field of view: 65
   orthographic: 0
@@ -2681,8 +2716,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1687258581}
-  m_LocalRotation: {x: -0.043911636, y: 0.94797796, z: -0.27724743, w: -0.15014485}
-  m_LocalPosition: {x: 13.54, y: 15.33, z: 14.76}
+  m_LocalRotation: {x: -0.04391207, y: 0.9479786, z: -0.27724552, w: -0.1501442}
+  m_LocalPosition: {x: 13.56, y: 15.372, z: 14.831}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -2710,7 +2745,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1
   m_VolumeTrigger: {fileID: 0}
-  m_RenderPostProcessing: 1
+  m_RenderPostProcessing: 0
   m_Antialiasing: 1
   m_AntialiasingQuality: 2
   m_StopNaN: 1

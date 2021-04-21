@@ -42,20 +42,21 @@ public class ObjectSerialization : MonoBehaviour
 	public void LoadDataFromFile()
 	{
 		//string mydata = SaveSystem.Load("PlayerData");
-		data = JsonUtility.FromJson<Data>(File.ReadAllText(Application.persistentDataPath + "/data.json"));
-		Debug.Log("Data Loaded From File");
-		if (data != null)
-		{
-			for (int i = 0; i < data.indexes.Count; i++)
+		if(File.Exists(Application.persistentDataPath + "/data.json")){
+			data = JsonUtility.FromJson<Data>(File.ReadAllText(Application.persistentDataPath + "/data.json"));
+			Debug.Log("Data Loaded From File");
+			if (data != null)
 			{
-				Transform CurrentFeature = gameObject.transform.GetChild(i);
-				CurrentFeature.GetChild(features[i].currIndex).gameObject.SetActive(false);
-				features[i].currIndex = data.indexes[i];
-				//features[i].MeshObj.mesh = features[i].choices[features[i].currIndex].GetComponent<MeshFilter>().sharedMesh;
-				//features[i].ObjRenderer.material = features[i].choices[features[i].currIndex].GetComponent<MeshRenderer>().sharedMaterial;
-				features[currFeature].UpdateObject();
-				CurrentFeature.GetChild(features[i].currIndex).gameObject.SetActive(true);
-				
+				for (int i = 0; i < data.indexes.Count; i++)
+				{
+					Transform CurrentFeature = gameObject.transform.GetChild(i);
+					CurrentFeature.GetChild(features[i].currIndex).gameObject.SetActive(false);
+					features[i].currIndex = data.indexes[i];
+					//features[i].MeshObj.mesh = features[i].choices[features[i].currIndex].GetComponent<MeshFilter>().sharedMesh;
+					//features[i].ObjRenderer.material = features[i].choices[features[i].currIndex].GetComponent<MeshRenderer>().sharedMaterial;
+					features[currFeature].UpdateObject();
+					CurrentFeature.GetChild(features[i].currIndex).gameObject.SetActive(true);
+				}
 			}
 		}
 	}

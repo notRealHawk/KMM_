@@ -35,4 +35,9 @@ public class AnimationControl : MonoBehaviour
             anim.SetFloat("AnimationBlend", valueChange);
         }
     }
+    public void IdleToPass(){
+        print("Yes it's Happening");
+        print(anim.gameObject);
+        anim.SetTrigger("isPassing");
+    }
 }

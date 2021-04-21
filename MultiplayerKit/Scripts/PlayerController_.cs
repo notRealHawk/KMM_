@@ -46,6 +46,7 @@ public class PlayerController_ : MonoBehaviour
             return;
         }
         else if(GameSetup.GS.Alphabets.Contains(userInput.text)){
+            PlayerHand.gameObject.SetActive(true); 
 	        enteredText = userInput.text;
 	        //pressedSubmit = true;
 	        for(int i = 0; i < playerCards.Count; i++)
@@ -85,6 +86,9 @@ public class PlayerController_ : MonoBehaviour
             newOwner.playerCards.Add(playerCards[cardIndex]);
             GameSetup.GS.BlockCard(playerCards[cardIndex]);
             playerCards.Remove(playerCards[cardIndex]);
+            if (!np.isBot){
+                gameObject.GetComponent<AnimationControl>().IdleToPass();
+            }
         }
         else
         {
