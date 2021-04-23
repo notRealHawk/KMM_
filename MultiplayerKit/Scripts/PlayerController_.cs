@@ -20,7 +20,6 @@ public class PlayerController_ : MonoBehaviour
     public List<Card> playerCards = new List<Card>();
     public bool readyToPlay;
     public bool isTurnComplete = false;
-
     private void Start()
     {
         //if (np.PV.IsMine&&!np.isBot)
@@ -97,7 +96,7 @@ public class PlayerController_ : MonoBehaviour
     }
     public void SelectCard()
     {
-        List<int> SelectedCard = new List<int>();
+        /*List<int> SelectedCard = new List<int>();
         List<int> OtherCards = new List<int>();
         for(int i=0; i < playerCards.Count; i++)
         {
@@ -106,13 +105,13 @@ public class PlayerController_ : MonoBehaviour
                 {
                     playerCards[i].CardCounter++;
                     playerCards[j].CardCounter++;
-                    if(!SelectedCard.Contains(i)){
-                        SelectedCard.Add(i);
-                    }
+                    //if(!SelectedCard.Contains(i)){
+                    //  SelectedCard.Add(i);
+                    //}
                     continue;
                 }
                 else if (playerCards[i].DisplayText.text != playerCards[j].DisplayText.text){
-                    if(playerCards[j].CardCounter <= playerCards[i].CardCounter && !SelectedCard.Contains(j) && !playerCards[j].isBlocked)
+                    if(playerCards[i].CardCounter <= playerCards[j].CardCounter && !SelectedCard.Contains(j) && !playerCards[j].isBlocked)
                     {
                         SelectedCard.Add(j);
                     }
@@ -132,9 +131,10 @@ public class PlayerController_ : MonoBehaviour
             int rCard = Random.Range(0,playerCards.Count);
             playerCards[rCard].OnClickCard();
         }
+        */
         // return;
         // RandomSelect:
-        //     int randSelectCard = Random.Range(0,playerCards.Count);
-        //     playerCards[randSelectCard].OnClickCard();
+        int randSelectCard = Random.Range(0,playerCards.Count);
+        playerCards[randSelectCard].OnClickCard();
     }
 }

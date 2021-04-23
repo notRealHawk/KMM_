@@ -283,7 +283,7 @@ public class GameSetup : MonoBehaviour {
 					{
 						//player.gameObject.GetComponent<AnimationControl>().PassToIdle();
 						player.Locker.gameObject.SetActive(false);
-						Debug.Log(player.gameObject.name);
+						//Debug.Log(player.gameObject.name);
 						player.playerCards[i].gameObject.SetActive(true);
 					}
 					else
@@ -292,7 +292,7 @@ public class GameSetup : MonoBehaviour {
 					}
 				}
 				DeckCompleteCheck(Players[j]);
-				print(Players[j]);
+				//print(Players[j]);
 				if (player.np.isBot && j == currentTurn)
 				{
 					player.SelectCard();
@@ -325,6 +325,7 @@ public class GameSetup : MonoBehaviour {
         {
         	currentTurn = 0;
         }
+		print(currentTurn);
 		CheckTurn();
     }
 
@@ -334,7 +335,6 @@ public class GameSetup : MonoBehaviour {
 		if (passedCard.Iteration >= 4)
 		{
 			var player = Players[currentTurn].GetComponent<NetworkPlayer>().PC;
-			print(player.gameObject.name);
 			// if (player.LastBlockedCard != null)
 			// {
 			// 	player.LastBlockedCard.GetComponent<Button>().onClick.AddListener(() => player.LastBlockedCard.OnClickCard());
@@ -342,6 +342,7 @@ public class GameSetup : MonoBehaviour {
 			// }
 			passedCard.gameObject.GetComponent<Button>().onClick.RemoveListener(() => passedCard.OnClickCard());
 			passedCard.isBlocked = true;
+			passedCard.Iteration = 0;
 			player.LastBlockedCard = passedCard;
 		}
 	}
