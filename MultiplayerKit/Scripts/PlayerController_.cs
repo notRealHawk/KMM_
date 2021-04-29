@@ -6,7 +6,6 @@ using System.Text.RegularExpressions;
 
 public class PlayerController_ : MonoBehaviour
 {
-    
     public NetworkPlayer np;
     public bool myTurn = false;
     //public bool pressedSubmit = false;
@@ -20,13 +19,31 @@ public class PlayerController_ : MonoBehaviour
     public List<Card> playerCards = new List<Card>();
     public bool readyToPlay;
     public bool isTurnComplete = false;
+    public Camera cam;
+    public Animator camAnimator;
+    public Quaternion cardRotation;
     private void Start()
     {
+        cam = Camera.main;
+        camAnimator = cam.GetComponent<Animator>();
         //if (np.PV.IsMine&&!np.isBot)
-        //{
+        //{ 
         //    PlayerHand.SetActive(true);
         //}
         BotValues();
+    }
+    void Update(){
+        if(!np.isBot && !GameSetup.GS.gameOver){
+            if(Input.GetMouseButtonDown(0)){
+                Ray ray = cam.ScreenPointToRay(Input.mousePosition);
+                RaycastHit hit;
+                if(Physics.Raycast(ray, out hit, Mathf.Infinity)){
+                    if(hit.collider.tag == "Card"){
+                        hit.collider.GetComponent<Card>().OnClickCard();
+                    }
+                }
+            }
+        }
     }
     void BotValues()
     {
@@ -72,22 +89,26 @@ public class PlayerController_ : MonoBehaviour
             //Debug.Log("")
             if (LastBlockedCard != null)
 			{
-				LastBlockedCard.GetComponent<Button>().onClick.AddListener(() => LastBlockedCard.OnClickCard());
+				//LastBlockedCard.GetComponent<Button>().onClick.AddListener(() => LastBlockedCard.OnClickCard());
 				LastBlockedCard.isBlocked = false;
 			}
-            Locker.gameObject.SetActive(true);
+            //Locker.gameObject.SetActive(true);
             playerCards[cardIndex].Owner = newOwner;
             //playerCards[cardIndex].cardValue = cardNewValue;
             //playerCards[cardIndex].DisplayText.text = playerCards[cardIndex].cardValue;
             playerCards[cardIndex].transform.SetParent(newOwner.PlayerHand.transform);
-            playerCards[cardIndex].transform.rotation = Quaternion.identity;
-            playerCards[cardIndex].transform.localScale = Vector3.one;
+            playerCards[cardIndex].transform.localRotation = cardRotation;
+            //playerCards[cardIndex].transform.localScale = Vector3.one;
             newOwner.playerCards.Add(playerCards[cardIndex]);
             GameSetup.GS.BlockCard(playerCards[cardIndex]);
             playerCards.Remove(playerCards[cardIndex]);
             if (!np.isBot){
                 gameObject.GetComponent<AnimationControl>().IdleToPass();
+                camAnimator.SetBool("Forward", false);
+                camAnimator.SetBool("Backward", true);
+                np.gameObject.GetComponent<Collider>().enabled = true;
             }
+
         }
         else
         {

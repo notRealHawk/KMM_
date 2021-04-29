@@ -2,12 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+//using Facebook.Unity.Example;//
 public class SplashScreen : MonoBehaviour {
 	public float DelayTime;
 	public AudioSource _soundManager;
 	public AudioClip Sound;
 	public string SplashScreenSound;
 	void Start () {
+		// FB.Init(this.OnInitComplete, this.OnHideUnity);
 		StartCoroutine (SplashSound ());
 		StartCoroutine (StartGame ());	
 	}
@@ -19,7 +21,7 @@ public class SplashScreen : MonoBehaviour {
 
 	IEnumerator StartGame(){
 		yield return new WaitForSeconds (DelayTime);
-	
+
 		SceneManager.LoadScene ("MainMenu");
 	}
 }

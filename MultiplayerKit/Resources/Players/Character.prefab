@@ -27,7 +27,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1464791180533693073}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -47,8 +47,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.26544666, y: 0.38554326, z: 0.14956084}
-  m_Center: {x: 0.0018849373, y: 0.19214456, z: 0.0020361096}
+  m_Size: {x: 0.3452045, y: 0.38554323, z: 0.109079316}
+  m_Center: {x: -0.00020621781, y: 0.19214433, z: 0.002317007}
 --- !u!114 &4152638178699487443
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -137,7 +137,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1356593743532643821
 RectTransform:
   m_ObjectHideFlags: 0
@@ -319,16 +319,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 9157914332155510006}
     m_Modifications:
-    - target: {fileID: 640767881357446600, guid: e65aff7c61c74de4fa343d89c6c4335c,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 5503644401515664156}
-    - target: {fileID: 640767881357446600, guid: e65aff7c61c74de4fa343d89c6c4335c,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: SubmitText
-      objectReference: {fileID: 0}
     - target: {fileID: 6011729062124462683, guid: e65aff7c61c74de4fa343d89c6c4335c,
         type: 3}
       propertyPath: m_RootOrder

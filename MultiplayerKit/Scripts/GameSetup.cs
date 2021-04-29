@@ -284,11 +284,14 @@ public class GameSetup : MonoBehaviour {
 						//player.gameObject.GetComponent<AnimationControl>().PassToIdle();
 						player.Locker.gameObject.SetActive(false);
 						//Debug.Log(player.gameObject.name);
-						player.playerCards[i].gameObject.SetActive(true);
+						//player.playerCards[i].gameObject.SetActive(true);
+						player.np.gameObject.GetComponent<Collider>().enabled = false;
+						player.camAnimator.SetBool("Forward", true);
+                		player.camAnimator.SetBool("Backward", false);
 					}
 					else
 					{
-						player.playerCards[i].gameObject.SetActive(false);
+						//player.playerCards[i].gameObject.SetActive(false);
 					}
 				}
 				DeckCompleteCheck(Players[j]);
@@ -340,7 +343,7 @@ public class GameSetup : MonoBehaviour {
 			// 	player.LastBlockedCard.GetComponent<Button>().onClick.AddListener(() => player.LastBlockedCard.OnClickCard());
 			// 	player.LastBlockedCard.isBlocked = false;
 			// }
-			passedCard.gameObject.GetComponent<Button>().onClick.RemoveListener(() => passedCard.OnClickCard());
+			//passedCard.gameObject.GetComponent<Button>().onClick.RemoveListener(() => passedCard.OnClickCard());
 			passedCard.isBlocked = true;
 			passedCard.Iteration = 0;
 			player.LastBlockedCard = passedCard;

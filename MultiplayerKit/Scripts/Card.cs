@@ -2,19 +2,20 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class Card : MonoBehaviour
 {
     public int Iteration;
     public bool isBlocked = false;
     public string cardValue;
-    public Button button;
-    public Text DisplayText;
+    //public Button button;
+    public TMP_Text DisplayText;
     public PlayerController_ Owner;
     public int CardCounter;
     private void Start()
     {
-        button.onClick.AddListener(() => OnClickCard());
+        //button.onClick.AddListener(() => OnClickCard());
     }
 
     public void OnClickCard()
@@ -43,5 +44,9 @@ public class Card : MonoBehaviour
                 Owner.PassCard(nextPlayer, 0, cardValue);
             }
             GameSetup.GS.TurnDelay();
+    }
+    public void OnClickCards()
+    {
+        print("Hello");
     }
 }
