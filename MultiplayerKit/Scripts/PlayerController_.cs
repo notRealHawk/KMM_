@@ -10,8 +10,9 @@ public class PlayerController_ : MonoBehaviour
     public bool myTurn = false;
     //public bool pressedSubmit = false;
     public InputField userInput;
+    public Sprite userSelection;
     public Button submitButton;
-    public string enteredText;
+    //public string enteredText;
     //public GameManager _gameManager;
     public GameObject PlayerHand;
     public Card LastBlockedCard;
@@ -49,26 +50,33 @@ public class PlayerController_ : MonoBehaviour
     {
         if (np.isBot)
         {
-            userInput.text = GameSetup.GS.Alphabets[UnityEngine.Random.Range(0, GameSetup.GS.Alphabets.Count)];
+            //userInput.text = GameSetup.GS.Alphabets[UnityEngine.Random.Range(0, GameSetup.GS.Alphabets.Count)];
             //GameSetup.GS.Alphabets.Remove(userInput.text);
+            int stickerIndex = UnityEngine.Random.Range(0, GameSetup.GS.CardSymbols.Count);
+            print(stickerIndex);
+            userSelection = GameSetup.GS.CardSymbols[stickerIndex];
+            GameSetup.GS.CardSymbols.Remove(userSelection);
             SubmitText();
         }
     }
     public void SubmitText()
     {
-        if (!Regex.IsMatch(userInput.text, @"[a-bA-Z]", RegexOptions.IgnoreCase))
+        /*if (!Regex.IsMatch(userInput.text, @"[a-bA-Z]", RegexOptions.IgnoreCase))
         {
             Debug.Log("Enter alphabets only");
             return;
-        }
-        else if(GameSetup.GS.Alphabets.Contains(userInput.text)){
+        }*/
+        /*GameSetup.GS.Alphabets.Contains(userInput.text)*/
+        if(GameSetup.GS.CardSymbols.Contains(userSelection)){
             PlayerHand.gameObject.SetActive(true); 
-	        enteredText = userInput.text;
+	        //enteredText = userInput.text;
 	        //pressedSubmit = true;
 	        for(int i = 0; i < playerCards.Count; i++)
             {
-                playerCards[i].cardValue = userInput.text;
-                playerCards[i].DisplayText.text = userInput.text;
+                //playerCards[i].cardValue = userInput.text;
+                playerCards[i].cardSprite = userSelection;
+                //playerCards[i].DisplayText.text = userInput.text;
+                playerCards[i].DisplaySprite.sprite = userSelection;
             }
 	        userInput.gameObject.SetActive(false);
 	        submitButton.gameObject.SetActive(false);

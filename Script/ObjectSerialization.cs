@@ -123,6 +123,7 @@ public class Feature
     //public GameObject playershirt;
     
     public string ID;
+	public Sprite itemImage;
     public int currIndex;
     public List<GameObject> choices;
     public MeshFilter MeshObj;

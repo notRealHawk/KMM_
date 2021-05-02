@@ -9,8 +9,10 @@ public class Card : MonoBehaviour
     public int Iteration;
     public bool isBlocked = false;
     public string cardValue;
+    public Sprite cardSprite;
     //public Button button;
     public TMP_Text DisplayText;
+    public Image DisplaySprite;
     public PlayerController_ Owner;
     public int CardCounter;
     private void Start()

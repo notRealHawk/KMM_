@@ -33,6 +33,7 @@ public class GameSetup : MonoBehaviour {
 	public Text AlertMessageText;
 	[SerializeField]
 	int totalCardsPerPerson;
+	public List<Sprite> CardSymbols;
 
 	// public void TurnCheck(GameObject currentPlayer)
     // {
@@ -117,17 +118,22 @@ public class GameSetup : MonoBehaviour {
 		}
 	}
 	void Start(){
+		CardSymbols = new List<Sprite>();
 		PhotonRoom.photonRoom.isGameLoaded = true;
 		PV = GetComponent<PhotonView> ();
 		Debug.Log ("Starting TIme = " + StartingTime);
 		GameModeUI [PlayerPrefs.GetInt ("MyGameMode")].SetActive (true);
 		GolaTime = Random.Range (30, 45);
 		StartCoroutine (StartDelay ());
-		for (int i = 0; i < 26; i++)
+		/*for (int i = 0; i < 26; i++)
 		{
 			Alphabets.Add((char)('A' + i) + "");
 			//Alphabets.Add((char)('a' + i) + "");
 		}
+		foreach(Sprite sticker in Resources.LoadAll(("Stickers"), typeof(Sprite)))
+	    {
+		    CardSymbols.Add(sticker);
+	    }*/
 	}
 	public void StartTime(int startingTime,float TotalTime){
 

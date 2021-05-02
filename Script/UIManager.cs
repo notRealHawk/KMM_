@@ -42,7 +42,7 @@ public class UIManager : MonoBehaviour
 			Button b = temp.GetComponent<Button>();
 			b.onClick.AddListener(() => mgr.SetCurr(int.Parse(temp.name)));
 			btn.Add(b);
-			b.GetComponentInChildren<Text>().text = mgr.features[i].ID.ToString();
+			b.transform.GetChild(0).GetComponent<Image>().sprite  = mgr.features[i].itemImage;
 		}
 	}
 	public void StartGame(){

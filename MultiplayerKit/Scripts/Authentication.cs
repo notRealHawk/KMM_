@@ -2,12 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Playables;
 
 public class Authentication : MonoBehaviour {
 	public Text mainText;
 	public InputField NameBar;
 	public GameObject AuthenticationScreen;
 	public GameObject LoginScreen;
+	public GameObject Timeline;
 	// Use this for initialization
 	void Start () {
 		if (PlayerPrefs.HasKey("Name")&&PlayerPrefs.GetString("Name")!=""){
@@ -15,12 +17,16 @@ public class Authentication : MonoBehaviour {
 			//MainMenu.mainMenu.Camera.GetComponent<CameraViewGamepLay>().enabled=true;
 			MainMenu.mainMenu._server.enabled=true;
 			gameObject.SetActive(false);
-			}else{
+			//Timeline.GetComponent<PlayableDirector>().enabled = true;
+			Timeline.GetComponent<PlayableDirector>().playableGraph.GetRootPlayable(0).SetSpeed(1);
+			}
+		else{
 			AuthenticationScreen.SetActive (false);
 			LoginScreen.SetActive (true);
 			Debug.Log("Failed to authenticate");
 			mainText.text = "Please Enter Your Name?";
 			mainText.color = Color.green;
+			Timeline.GetComponent<PlayableDirector>().playableGraph.GetRootPlayable(0).SetSpeed(0);
 			}
 		}
 	public void Login(){
@@ -30,6 +36,8 @@ public class Authentication : MonoBehaviour {
 			//MainMenu.mainMenu.Camera.GetComponent<CameraViewGamepLay> ().enabled = true;
 			MainMenu.mainMenu._server.enabled = true;
 			gameObject.SetActive (false);
+			//Timeline.GetComponent<PlayableDirector>().enabled = true;
+			Timeline.GetComponent<PlayableDirector>().playableGraph.GetRootPlayable(0).SetSpeed(1);
 		} else {
 			Debug.Log("InCorrect Username");
 			mainText.text = "UserName should atleast Contain 4 Letters!";
