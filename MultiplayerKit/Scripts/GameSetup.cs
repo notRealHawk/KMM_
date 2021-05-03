@@ -33,7 +33,7 @@ public class GameSetup : MonoBehaviour {
 	public Text AlertMessageText;
 	[SerializeField]
 	int totalCardsPerPerson;
-	public List<Sprite> CardSymbols;
+	public List<Sprite> CardSymbols = new List<Sprite>();
 
 	// public void TurnCheck(GameObject currentPlayer)
     // {
@@ -118,13 +118,15 @@ public class GameSetup : MonoBehaviour {
 		}
 	}
 	void Start(){
-		CardSymbols = new List<Sprite>();
 		PhotonRoom.photonRoom.isGameLoaded = true;
 		PV = GetComponent<PhotonView> ();
 		Debug.Log ("Starting TIme = " + StartingTime);
 		GameModeUI [PlayerPrefs.GetInt ("MyGameMode")].SetActive (true);
 		GolaTime = Random.Range (30, 45);
 		StartCoroutine (StartDelay ());
+		if(CardSymbols == null){
+			print("This List is empty");
+		}
 		/*for (int i = 0; i < 26; i++)
 		{
 			Alphabets.Add((char)('A' + i) + "");
@@ -365,7 +367,7 @@ public class GameSetup : MonoBehaviour {
         {
             for (int j = i+1; j < player.playerCards.Count; j++)
             {
-                if (player.playerCards[i].cardValue == player.playerCards[j].cardValue)
+                if (player.playerCards[i].cardSprite.name == player.playerCards[j].cardSprite.name)
                 {
                     counterCheck++;
                 }

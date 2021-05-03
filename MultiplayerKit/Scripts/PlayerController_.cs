@@ -11,6 +11,8 @@ public class PlayerController_ : MonoBehaviour
     //public bool pressedSubmit = false;
     public InputField userInput;
     public Sprite userSelection;
+    public Transform SymbolNavPanel;
+    public Image currentSymbol;
     public Button submitButton;
     //public string enteredText;
     //public GameManager _gameManager;
@@ -23,6 +25,7 @@ public class PlayerController_ : MonoBehaviour
     public Camera cam;
     public Animator camAnimator;
     public Quaternion cardRotation;
+    public int currIndex;
     private void Start()
     {
         cam = Camera.main;
@@ -55,7 +58,6 @@ public class PlayerController_ : MonoBehaviour
             int stickerIndex = UnityEngine.Random.Range(0, GameSetup.GS.CardSymbols.Count);
             print(stickerIndex);
             userSelection = GameSetup.GS.CardSymbols[stickerIndex];
-            GameSetup.GS.CardSymbols.Remove(userSelection);
             SubmitText();
         }
     }
@@ -68,6 +70,7 @@ public class PlayerController_ : MonoBehaviour
         }*/
         /*GameSetup.GS.Alphabets.Contains(userInput.text)*/
         if(GameSetup.GS.CardSymbols.Contains(userSelection)){
+            GameSetup.GS.CardSymbols.Remove(userSelection);
             PlayerHand.gameObject.SetActive(true); 
 	        //enteredText = userInput.text;
 	        //pressedSubmit = true;
@@ -78,18 +81,21 @@ public class PlayerController_ : MonoBehaviour
                 //playerCards[i].DisplayText.text = userInput.text;
                 playerCards[i].DisplaySprite.sprite = userSelection;
             }
-	        userInput.gameObject.SetActive(false);
+	        //userInput.gameObject.SetActive(false);
+            if (!np.isBot){
+                SymbolNavPanel.gameObject.SetActive(false);
+            }
 	        submitButton.gameObject.SetActive(false);
 	        GameSetup.GS.AlertMessageText.text = "";
             np.readyToPlay = true;
             GameSetup.GS.CheckPlayersReady();
-        }
+        }/*
         else{
             GameSetup.GS.AlertMessageText.text = "Already Taken";
         	userInput.text = "";
             BotValues();
         	return;
-        }
+        }*/
     }
     public void PassCard(PlayerController_ newOwner,int cardIndex,string cardNewValue)
     {
@@ -166,4 +172,36 @@ public class PlayerController_ : MonoBehaviour
         int randSelectCard = Random.Range(0,playerCards.Count);
         playerCards[randSelectCard].OnClickCard();
     }
+
+    public void UpdateSymbol(){
+    	if(GameSetup.GS.CardSymbols == null){
+    		return;
+    	}
+    	if(currIndex < 0){
+    		currIndex = GameSetup.GS.CardSymbols.Count -1;
+    	}
+	    if(currIndex >= GameSetup.GS.CardSymbols.Count){
+		    currIndex = 0;
+	    }
+    }
+
+    public void NextSymbol()
+	{
+		if(GameSetup.GS.CardSymbols == null){
+			return;
+		}
+        currIndex++;
+        UpdateSymbol();
+		userSelection = GameSetup.GS.CardSymbols[currIndex];
+        currentSymbol.GetComponent<Image>().sprite = userSelection;
+	}
+	public void PrevSymbol(){
+		if(GameSetup.GS.CardSymbols == null){
+			return;
+		}
+        currIndex--;
+        UpdateSymbol();
+		userSelection = GameSetup.GS.CardSymbols[currIndex];
+        currentSymbol.GetComponent<Image>().sprite = userSelection;
+	}
 }

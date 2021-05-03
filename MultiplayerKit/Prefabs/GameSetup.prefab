@@ -8457,14 +8457,14 @@ MonoBehaviour:
   AlertMessageText: {fileID: 14234870}
   totalCardsPerPerson: 4
   CardSymbols:
-  - {fileID: 21300000, guid: 53b4e110b77693d4996a6d249b519c63, type: 3}
-  - {fileID: 21300000, guid: 85a5b390efd8cc4408705fd48a4b41a5, type: 3}
-  - {fileID: 21300000, guid: 9164b707a76df50409c224fd0b944823, type: 3}
-  - {fileID: 21300000, guid: f7dc8161309ea844481aa616d8fceaf3, type: 3}
-  - {fileID: 21300000, guid: 06df73068a2b62d48b030cf0a5441e47, type: 3}
-  - {fileID: 21300000, guid: a86ef00c34def1943980b344952f4a50, type: 3}
-  - {fileID: 21300000, guid: 00d519e37ea578b43be7f2babaa79773, type: 3}
-  - {fileID: 21300000, guid: 75bbadf1b53a6af47ac07282a02f6b5b, type: 3}
+  - {fileID: 21300000, guid: be75831f7d87b584287575005e7b8ebe, type: 3}
+  - {fileID: 21300000, guid: da3224b621abecb4c93ba1e922309ca3, type: 3}
+  - {fileID: 21300000, guid: 2cfc5761ac5abb34b96202bab13c1f37, type: 3}
+  - {fileID: 21300000, guid: 6eb164323a509b84c868a0c3dfc95664, type: 3}
+  - {fileID: 21300000, guid: 71c95a4e14f9bbb4d9a42bcb5e758dce, type: 3}
+  - {fileID: 21300000, guid: 0418dd11a00803b4ea8867625cc188ad, type: 3}
+  - {fileID: 21300000, guid: 0d61be15b2ef35b49bd26315958db65c, type: 3}
+  - {fileID: 21300000, guid: 49642e715167e5c4699b67539377c6b5, type: 3}
   GameModeUI:
   - {fileID: 8598326516458065438}
   - {fileID: 8598326517590142236}

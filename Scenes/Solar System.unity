@@ -2773,11 +2773,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8598326517487996510, guid: 89aa8870cf52ff146adc40dfac8f4b41,
         type: 3}
-      propertyPath: CardSymbols.Array.size
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 8598326517487996510, guid: 89aa8870cf52ff146adc40dfac8f4b41,
-        type: 3}
       propertyPath: BotsSpawnPoints.Array.data[0]
       value: 
       objectReference: {fileID: 6068473255762346070}

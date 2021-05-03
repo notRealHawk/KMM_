@@ -12,6 +12,7 @@ public class Authentication : MonoBehaviour {
 	public GameObject Timeline;
 	// Use this for initialization
 	void Start () {
+		//PlayerPrefs.DeleteAll();
 		if (PlayerPrefs.HasKey("Name")&&PlayerPrefs.GetString("Name")!=""){
 			Debug.Log ("Name of PLayer is="+PlayerPrefs.GetString("Name"));
 			//MainMenu.mainMenu.Camera.GetComponent<CameraViewGamepLay>().enabled=true;
