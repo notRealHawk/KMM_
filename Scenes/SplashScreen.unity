@@ -97,7 +97,8 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 0}
+  m_LightingDataAsset: {fileID: 112000000, guid: 452cec0b5dd6a814693e65557499968f,
+    type: 2}
   m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
@@ -716,9 +717,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DelayTime: 3
-  _soundManager: {fileID: 1856230450}
-  Sound: {fileID: 8300000, guid: 3bcc0aa87e772b144b7420b1c11a4618, type: 3}
-  SplashScreenSound: 
 --- !u!4 &1856230449
 Transform:
   m_ObjectHideFlags: 0
@@ -829,68 +827,3 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!1001 &2117007701
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 115478, guid: a3267720e82aa41c1a05ab29824902b4, type: 3}
-      propertyPath: m_Name
-      value: Adjust
-      objectReference: {fileID: 0}
-    - target: {fileID: 415478, guid: a3267720e82aa41c1a05ab29824902b4, type: 3}
-      propertyPath: m_RootOrder
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 415478, guid: a3267720e82aa41c1a05ab29824902b4, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 415478, guid: a3267720e82aa41c1a05ab29824902b4, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 415478, guid: a3267720e82aa41c1a05ab29824902b4, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 415478, guid: a3267720e82aa41c1a05ab29824902b4, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 415478, guid: a3267720e82aa41c1a05ab29824902b4, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 415478, guid: a3267720e82aa41c1a05ab29824902b4, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 415478, guid: a3267720e82aa41c1a05ab29824902b4, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 415478, guid: a3267720e82aa41c1a05ab29824902b4, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 415478, guid: a3267720e82aa41c1a05ab29824902b4, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 415478, guid: a3267720e82aa41c1a05ab29824902b4, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 11482148, guid: a3267720e82aa41c1a05ab29824902b4, type: 3}
-      propertyPath: appToken
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 11482148, guid: a3267720e82aa41c1a05ab29824902b4, type: 3}
-      propertyPath: startManually
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: a3267720e82aa41c1a05ab29824902b4, type: 3}

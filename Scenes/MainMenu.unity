@@ -26,7 +26,7 @@ RenderSettings:
   m_AmbientIntensity: 1
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.254717, g: 0.254717, b: 0.254717, a: 1}
-  m_SkyboxMaterial: {fileID: 2100000, guid: 81f714daf7144784b8a2f42f1cd30927, type: 2}
+  m_SkyboxMaterial: {fileID: 2100000, guid: 88ec9a13802800449aaf825aff3aadc7, type: 2}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -4130,9 +4130,9 @@ MonoBehaviour:
   delayStart: 0
   maxPlayers: 4
   GameTime: 0
-  menuScene: 1
+  menuScene: 2
   SelectedGameMode: 0
-  SelectedLevel: 1
+  SelectedLevel: 3
 --- !u!1 &365336633
 GameObject:
   m_ObjectHideFlags: 0
@@ -5787,7 +5787,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &587517926
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9498,7 +9498,7 @@ Camera:
     y: 0
     width: 1
     height: 1
-  near clip plane: 0.3
+  near clip plane: 0.01
   far clip plane: 1000
   field of view: 60
   orthographic: 0
